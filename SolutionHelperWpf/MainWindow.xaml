@@ -1,0 +1,35 @@
+﻿<Window x:Class="SolutionHelperWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SolutionHelperWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="MainWindow_OnLoaded">
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="150"/>
+      <ColumnDefinition/>
+      <ColumnDefinition Width="100"/>
+    </Grid.ColumnDefinitions>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="30"/>
+      <RowDefinition Height="30"/>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+
+    <TextBlock Text="Solution" Margin="4"/>
+    <TextBox x:Name="txtSolutionPath" Grid.Column="1" HorizontalAlignment="Stretch" Margin="4" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"  />
+    <Button Grid.Column="2" Content="AnalyzeSolution" HorizontalAlignment="Left" Margin="4" VerticalAlignment="Top" Click="Button_Click"/>
+
+    <TextBlock Grid.Row="1" Text="Nuget Solution" Margin="4"/>
+    <TextBox Grid.Row="1" x:Name="txtNugetSolutionPath" Grid.Column="1" HorizontalAlignment="Stretch" Margin="4" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"  />
+
+    <TabControl Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
+      <TabItem Header="Description">
+        <TextBox x:Name="txtDetails" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AcceptsReturn="True"></TextBox>
+      </TabItem>
+    </TabControl>
+  </Grid>
+</Window>
