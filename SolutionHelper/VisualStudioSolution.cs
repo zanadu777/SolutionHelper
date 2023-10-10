@@ -15,6 +15,7 @@ namespace SolutionHelper
 
     public VisualStudioSolution(FileInfo file)
     {
+      SolutionFile = file;
       var lines = File.ReadAllLines(file.FullName);
       var projectRxText = """
                      Project\("(?<ProjectType>{[A-Z0-9-]+})"\)\s*=\s*"(?<ProjectName>.*?)"\s*,\s*"(?<ProjectPath>.*?)"\s*,\s*"(?<ProjectGuid>.*?)"
@@ -39,9 +40,32 @@ namespace SolutionHelper
         }
       }
 
+      NugetPackageDirectory = GetNugetPackageDirectory(file);
     }
 
+
+    private DirectoryInfo GetNugetPackageDirectory(FileInfo file)
+    {
+      var defaultLocationForNugetConfig = Path.Combine(file.DirectoryName, "Nuget.config");
+
+      if (File.Exists(defaultLocationForNugetConfig))
+      {
+        var nugetText = File.ReadAllText(defaultLocationForNugetConfig);
+
+
+      }
+
+      var location = defaultLocationForNugetConfig;
+      return new DirectoryInfo(defaultLocationForNugetConfig);
+
+    }
     public string Name { get; set; }
+
+
+
+    public DirectoryInfo NugetPackageDirectory { get; set; }
+    public FileInfo SolutionFile { get; set; }
+
 
     public string Details()
     {
