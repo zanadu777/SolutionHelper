@@ -1,5 +1,6 @@
-﻿using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
+using SolutionHelper.Framework.FileData;
 using SolutionHelper.Framework.VisualStudioObjects;
 
 namespace SolutionHelper
@@ -7,35 +8,27 @@ namespace SolutionHelper
   public class VisualStudioSolution
   {
     public VisualStudioSolution()
-    {
-
-    }
+    {}
 
     public List<VisualStudioProject> Projects { get; set; } = new();
 
     public VisualStudioSolution(FileInfo file)
     {
       SolutionFile = file;
-      var lines = File.ReadAllLines(file.FullName);
-      var projectRxText = """
-                     Project\("(?<ProjectType>{[A-Z0-9-]+})"\)\s*=\s*"(?<ProjectName>.*?)"\s*,\s*"(?<ProjectPath>.*?)"\s*,\s*"(?<ProjectGuid>.*?)"
-                     """;
-      var projectRx = new Regex(projectRxText);
+      var text = File.ReadAllText(file.FullName);
 
       Name= Path.GetFileNameWithoutExtension(file.FullName);
 
       var solutionDirPath = Path.GetDirectoryName(file.FullName);
-      foreach (var line in lines)
-      {
 
-        var match = projectRx.Match(line);
-        if (match.Success)
+      var projects = SolutionProjectData.Parse(text);
+      foreach (var item in projects)
+      {
+        if (item.ProjectGuid != "{88E2D123-EDF0-498F-B83F-93CCD9E50CF1}") //not a solution folder
         {
-          var projectPath = match.Groups["ProjectPath"].Value;
-          var projectFullPath = Path.Combine(solutionDirPath, projectPath);
-          var projectName = match.Groups["ProjectName"].Value;
+          var projectFullPath = Path.Combine(solutionDirPath, item.RelativePath);
           var project = VisualStudioProject.Create(new FileInfo(projectFullPath));
-          project.Name = projectName;
+          project.Name = item.Name;
           Projects.Add(project);
         }
       }
@@ -51,8 +44,6 @@ namespace SolutionHelper
       if (File.Exists(defaultLocationForNugetConfig))
       {
         var nugetText = File.ReadAllText(defaultLocationForNugetConfig);
-
-
       }
 
       var location = defaultLocationForNugetConfig;
@@ -60,8 +51,6 @@ namespace SolutionHelper
 
     }
     public string Name { get; set; }
-
-
 
     public DirectoryInfo NugetPackageDirectory { get; set; }
     public FileInfo SolutionFile { get; set; }
