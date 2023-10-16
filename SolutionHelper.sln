@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionHelperWpf", "SolutionHelperWpf\SolutionHelperWpf.csproj", "{86AF57AA-DA2F-4F5F-BE8B-7C121009425D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionHelperWpf", "SolutionHelperWpf\SolutionHelperWpf.csproj", "{86AF57AA-DA2F-4F5F-BE8B-7C121009425D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionHelper", "SolutionHelper\SolutionHelper.csproj", "{947A3B77-5208-409A-8752-2D0B04AED28D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionHelper", "SolutionHelper\SolutionHelper.csproj", "{947A3B77-5208-409A-8752-2D0B04AED28D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NugetHelper", "NugetHelper\NugetHelper.csproj", "{396189B7-74F0-4DC2-98FE-E5453C545B71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionHelperControls", "SolutionHelperControls\SolutionHelperControls.csproj", "{F090D785-DC17-4335-9FF5-B9C15028CC20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NugetHelperControls", "NugetHelperControls\NugetHelperControls.csproj", "{DBB54305-1F0E-4488-BBD0-4A85EAB322B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiShared", "GuiShared\GuiShared.csproj", "{153DA5F4-BBB5-403C-925C-BC56F4A01E28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{947A3B77-5208-409A-8752-2D0B04AED28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{947A3B77-5208-409A-8752-2D0B04AED28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{947A3B77-5208-409A-8752-2D0B04AED28D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{396189B7-74F0-4DC2-98FE-E5453C545B71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{396189B7-74F0-4DC2-98FE-E5453C545B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{396189B7-74F0-4DC2-98FE-E5453C545B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{396189B7-74F0-4DC2-98FE-E5453C545B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F090D785-DC17-4335-9FF5-B9C15028CC20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F090D785-DC17-4335-9FF5-B9C15028CC20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F090D785-DC17-4335-9FF5-B9C15028CC20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F090D785-DC17-4335-9FF5-B9C15028CC20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBB54305-1F0E-4488-BBD0-4A85EAB322B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBB54305-1F0E-4488-BBD0-4A85EAB322B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBB54305-1F0E-4488-BBD0-4A85EAB322B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBB54305-1F0E-4488-BBD0-4A85EAB322B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{153DA5F4-BBB5-403C-925C-BC56F4A01E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{153DA5F4-BBB5-403C-925C-BC56F4A01E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{153DA5F4-BBB5-403C-925C-BC56F4A01E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{153DA5F4-BBB5-403C-925C-BC56F4A01E28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

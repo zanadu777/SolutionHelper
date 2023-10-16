@@ -66,7 +66,7 @@ namespace SolutionHelper
       sb.AppendLine(Name);
       foreach (var project in Projects)
       {
-        sb.AppendLine($"{l1}{project.Name}");
+        sb.AppendLine($"{l1}{project.Name} {project.Version}");
         if (project is NetFrameworkProject frameworkProject)
         {
           if (frameworkProject.ProjectReferences.Any())

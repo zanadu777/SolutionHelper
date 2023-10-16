@@ -1,4 +1,5 @@
-﻿using SolutionHelper.Framework.VisualStudioObjects;
+﻿using SolutionHelper.Framework.FileData;
+using SolutionHelper.Framework.VisualStudioObjects;
 using SolutionHelper.Net.VisualStudioObjects;
 
 namespace SolutionHelper
@@ -22,16 +23,16 @@ namespace SolutionHelper
                           """))
         project = new NetProject(text);  
 
-     
       if (project == null)
         throw new Exception($"Project {file.FullName} has an unrecognized format");
 
-      project.File= file;
+      project.File = file;
 
       return project;
     }
 
     public string Name { get; set; }
     public FileInfo File { get; set; }
+    public string Version { get; set; }
   }
 }

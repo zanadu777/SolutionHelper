@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SolutionHelper\SolutionHelper.csproj" />
+    <ProjectReference Include="..\NugetHelperControls\NugetHelperControls.csproj" />
+    <ProjectReference Include="..\NugetHelper\NugetHelper.csproj" />
+    <ProjectReference Include="..\SolutionHelperControls\SolutionHelperControls.csproj" />
   </ItemGroup>
 
 </Project>

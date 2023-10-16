@@ -27,33 +27,10 @@ namespace SolutionHelperWpf
     public MainWindow()
     {
       InitializeComponent();
-    }
 
-
-
-    private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
-    {
-      txtSolutionPath.Text = IsolatedStorageHelper.ReadFromIsolatedStorage("solutionPath"); ;
-      txtNugetSolutionPath.Text= IsolatedStorageHelper.ReadFromIsolatedStorage("nugetSolutionPath"); ;
-
-    }
-
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-      
-
-      var fi = new FileInfo(txtSolutionPath.Text);
-      if (fi.Exists)
-      {
-        IsolatedStorageHelper.WriteToIsolatedStorage("solutionPath", txtSolutionPath.Text.Trim());
-        IsolatedStorageHelper.WriteToIsolatedStorage("nugetSolutionPath", txtNugetSolutionPath.Text.Trim());
-        var soln = new VisualStudioSolution(fi);
-
-        txtDetails.Text = soln.Details();
-      }
-      else
-        MessageBox.Show($"{txtSolutionPath.Text} does not exist");
-   
+      var vm = new HelpersVm();
+      vm.Initialize();
+      DataContext = vm;
     }
   }
 }
