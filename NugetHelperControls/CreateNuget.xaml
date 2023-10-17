@@ -32,8 +32,8 @@
       </Grid.RowDefinitions>
 
 
-    <TextBlock Grid.Column="0" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Directory For Files" />
-    <TextBox x:Name="txtDirectory" Grid.Column="1"    TextWrapping="Wrap" Text=""   />
+    <TextBlock Grid.Column="0" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Path to project" />
+    <TextBox x:Name="txtProjectPath" Grid.Column="1"    TextWrapping="Wrap" Text=""   />
     <Button x:Name="btCreate" Grid.Column="2" Content="Create" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="btCreate_Click"/>
 
     <TextBlock Grid.Row="1" Text="Output Directory"/>

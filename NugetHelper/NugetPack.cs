@@ -14,7 +14,7 @@ namespace NugetHelper
     {
       var command = $"""
                     /K
-                    nuget.exe pack "{projectPath}" -Build -Symbols -OutputDirectory "{outputDirectory}"
+                    nuget.exe pack "{projectPath}" -Build -IncludeReferencedProjects  -OutputDirectory "{outputDirectory}"
                     """;
       var startInfo = new ProcessStartInfo("cmd.exe")
       {

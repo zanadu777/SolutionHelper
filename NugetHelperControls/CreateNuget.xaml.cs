@@ -25,13 +25,13 @@ namespace NugetHelperControls
     public string IsolatedStoragePrefix { get; set; }
     public void SaveToIsolatedStorage()
     {
-      IsolatedStorageHelper.WriteToIsolatedStorage($"{IsolatedStoragePrefix}:fileDirectory", txtDirectory.Text.Trim());
+      IsolatedStorageHelper.WriteToIsolatedStorage($"{IsolatedStoragePrefix}:projectPath", txtProjectPath.Text.Trim());
       IsolatedStorageHelper.WriteToIsolatedStorage($"{IsolatedStoragePrefix}:outPutDirectory", txtOutputDirectory.Text.Trim());
     }
 
     public void LoadFromIsolatedStorage()
     {
-       txtDirectory.Text = IsolatedStorageHelper.ReadFromIsolatedStorage($"{IsolatedStoragePrefix}:fileDirectory");
+       txtProjectPath.Text = IsolatedStorageHelper.ReadFromIsolatedStorage($"{IsolatedStoragePrefix}:projectPath");
        txtOutputDirectory.Text = IsolatedStorageHelper.ReadFromIsolatedStorage($"{IsolatedStoragePrefix}:outPutDirectory");
     }
 
@@ -39,21 +39,7 @@ namespace NugetHelperControls
     {
       SaveToIsolatedStorage();
       var packager = new NugetPack();
-      packager.PackageFromProject(@"D:\Dev\Programming 2023\SampleCompositeSolution\SampleNuget\SampleDb\SampleDb.csproj", txtOutputDirectory.Text);
-      //var command = """
-      //              /K
-      //              nuget.exe pack "D:\Dev\Programming 2023\SampleCompositeSolution\SampleNuget\SampleDb\SampleDb.csproj"
-      //              """;
-      //var startInfo = new ProcessStartInfo("cmd.exe")
-      //{
-      //  Arguments = command,
-      //  UseShellExecute = false
-      //};
-
-      //var process = Process.Start(startInfo);
-      //process?.WaitForExit();
-
-      //process?.Kill();
+      packager.PackageFromProject(txtProjectPath.Text.Trim(), txtOutputDirectory.Text.Trim());
     }
   }
 }
