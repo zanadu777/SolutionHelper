@@ -1,20 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Helpers.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Helpers.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Helper.Shared" Version="1.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Niubility.EmitMapper" Version="2.1.8" />
+    <PackageReference Include="Weikio.PluginFramework" Version="1.5.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GuiShared\GuiShared.csproj" />
-    <ProjectReference Include="..\SolutionHelper\SolutionHelper.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,9 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="HelperInterfaces" Version="1.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NugetHelperControls\NugetHelperControls.csproj" />
     <ProjectReference Include="..\NugetHelper\NugetHelper.csproj" />
-    <ProjectReference Include="..\SolutionHelperControls\SolutionHelperControls.csproj" />
   </ItemGroup>
 
 </Project>

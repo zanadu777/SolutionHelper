@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Helper.Shared" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Niubility.EmitMapper" Version="2.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GuiShared\GuiShared.csproj" />
     <ProjectReference Include="..\NugetHelper\NugetHelper.csproj" />
   </ItemGroup>
