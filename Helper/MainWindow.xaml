@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:Helper"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
-  <Grid>
+  <DockPanel>
+    <Menu DockPanel.Dock="Top">
+      <MenuItem Header="Settings">
+        <MenuItem Header="Clear Settings"  Click="ClearSettings"/>
+        </MenuItem>
+    </Menu>
+    <Grid>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="200"/>
       <ColumnDefinition/>
@@ -20,4 +26,5 @@
     </ListBox>
     <ContentControl Content="{Binding SelectedUserControl}"  Grid.Column="1"/>
   </Grid>
+  </DockPanel>
 </Window>

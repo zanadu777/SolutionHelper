@@ -10,6 +10,8 @@ namespace Helper
   {
     public string Key { get; set; }
 
+    public string SelectedKey { get; set; }
+
     public Dictionary<string, ControlState> ControlStates { get; set; }= new();
   }
 }

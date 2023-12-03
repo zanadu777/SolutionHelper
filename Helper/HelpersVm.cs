@@ -35,6 +35,7 @@ namespace SolutionHelperWpf
 
         selectedControl = value;
         SelectedUserControl = (UserControl)selectedControl;
+        ApplicationState.SelectedKey = SelectedControl.Key;
         OnPropertyChanged();
       }
     }
@@ -73,7 +74,14 @@ namespace SolutionHelperWpf
           @"D:\Dev\Programming 2023\SolutionHelper\NugetHelperControls\bin\Debug\net7.0-windows",
           type => { type.Inherits(typeof(UserControl)); });
 
-      var folderPluginCatalog = new CompositePluginCatalog(solutionHelperCatalog, nugetHelperCatalog);
+      var fileHelperCatalog =
+        new FolderPluginCatalog(
+          @"D:\Dev\Programming 2023\SolutionHelper\FileSystemHelperControls\bin\Debug\net7.0-windows",
+          type => { type.Inherits(typeof(UserControl)); });
+
+
+
+      var folderPluginCatalog = new CompositePluginCatalog(solutionHelperCatalog, nugetHelperCatalog, fileHelperCatalog);
       folderPluginCatalog.Initialize();
       var allPlugins = folderPluginCatalog.GetPlugins();
       foreach (Plugin? plugin in allPlugins)
@@ -117,7 +125,10 @@ namespace SolutionHelperWpf
         File.WriteAllText(constantApplicationStatePath, jsonState);
       }
 
-      SelectedControl = Controls[0];
+      if (ApplicationState?.SelectedKey != null)
+        SelectedControl = Controls.FirstOrDefault(x => x.Key == ApplicationState.SelectedKey) ?? Controls[0];
+      else
+        SelectedControl = Controls[0];
     }
 
     private void CreateUninitializedControl(string controlType)
@@ -129,7 +140,7 @@ namespace SolutionHelperWpf
       ApplicationState.ControlStates[control.HelperControlType] = new ControlState
       {
         JsonState = control.GetJsonData(),
-        ControlType= control.HelperControlType
+        ControlType = control.HelperControlType
       };
 
       Controls.Add(control);
@@ -157,6 +168,7 @@ namespace SolutionHelperWpf
       {
         if (Equals(value, selectedUserControl)) return;
         selectedUserControl = value;
+
         OnPropertyChanged();
       }
     }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using SolutionHelperWpf;
 
 namespace Helper
@@ -18,6 +19,11 @@ namespace Helper
       var vm = new HelpersVm();
       vm.Initialize();
       DataContext = vm;
+    }
+
+    private void ClearSettings(object sender, RoutedEventArgs e)
+    {
+      File.Delete("ApplicationState.json");
     }
   }
 }
